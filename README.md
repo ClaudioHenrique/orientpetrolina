@@ -1,8 +1,11 @@
 Orient Petrolina
 ===============
-Author : Cláudio Henrique 
-
-e-mail : claudiohenriquedev@gmail.com 
+*******************************************************************************
+** Author: Cláudio Henrique                                                   **
+**                                                                            ** 
+** E-mail: claudiohenriquedev@gmail.com                                       ** 
+**                                                                            **  
+*******************************************************************************
 
 Esse aplicativo, tem como finalidadde recolher informações referente a 
 Nome do Filme, Sinopse, Censura é Horarios.
