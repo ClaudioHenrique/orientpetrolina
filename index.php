@@ -7,7 +7,7 @@
     <body>
         <?php
             include_once('classes/Filmes.class.php');
-            $filme = new Filmes();
+            $Filme = new Filmes();
         ?>
     </body>
 </html>
