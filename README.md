@@ -3,7 +3,7 @@ Orient Petrolina
 *******************************************************************************
  Author: Cláudio Henrique                                                   
 **                                                                            ** 
-** E-mail: claudiohenriquedev@gmail.com                                       ** 
+ E-mail: claudiohenriquedev@gmail.com                                        
 **                                                                            **  
 
 Esse aplicativo, tem como finalidadde recolher informações referente a 
