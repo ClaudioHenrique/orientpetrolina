@@ -103,7 +103,7 @@
            echo '<pre>';
            print_r($this->capas);
 
-           //$this->xml(); //chama método responsavel por gerar o xml
+           $this->xml(); //chama método responsavel por gerar o xml
         }
         
         private function isOnline(){
