@@ -2,7 +2,7 @@
     
     /*
      * Esse script, por meio de expressões regulares, captura e trata as informações
-     * devolvendo ao usuario, informações referente aos Filmes que estão no cartaz no momento
+     * devolvendo ao usuario, informações referente aos Filmes que estão em cartaz no momento
      */
     
     include_once('simple_html_dom.php');
