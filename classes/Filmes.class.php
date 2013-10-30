@@ -2,13 +2,13 @@
     
     /*
      * Esse script, por meio de expressões regulares, captura e trata as informações
-     * devolvendo ao usuario, informações referente aos Filmes que estão em cartaz no momento
+     * devolvendo ao usuario, informações referente aos Filmes que estão no cartaz no momento
      */
     
     include_once('simple_html_dom.php');
     include_once('xml.class.php');
   
-    class Filmes{
+    class Filmes {
         private $urlPrincipal = "http://www.rivershopping.com.br/cinema.aspx";
         
         private $element    = null;
@@ -16,11 +16,28 @@
         private $censura    = null;
         private $horarios   = null;
         private $sinopse    = null;
-        private $retorno    = null;
         private $capas      = null;
-        
+        private $tamanho    = null;
+        private $retorno    = null;
+
         public function __construct(){
             $this->emCartaz();
+        }
+        
+        public function getFilmes(){
+            return $this->filmes;
+        }
+        
+        public function getCensura(){
+            return $this->censura;
+        }
+        
+        public function getHorarios(){
+            return $this->horarios;
+        }
+        
+        public function getSinopse(){
+            return $this->sinopse;
         }
         
         private function xml(){
@@ -30,14 +47,10 @@
             $controleHorarios = 0;
             $controleCensura = 0;
             
-            $this->sinopse = explode('<br>',$this->sinopse); //Transforma em um array
             $tamanho = sizeof($this->sinopse); //Pega o tamanho dos arrays 
-            $tamanho = $tamanho - 1; //Remove o espaço em branco no final de todos os arrays
-            $this->filmes = explode('<br>',$this->filmes); //Transforma em um array
-            $this->horarios = explode('<br>',$this->horarios); //Trabsforma em um array
-            $this -> censura = explode('<br>',$this -> censura); //Transforma em um array
-
+            
             for($i = 0; $i < $tamanho; $i++){
+                //Responsavel por exibir os filmes
                 $xml ->addTag('filme', $this->filmes[$i]);
                     //Responsavel por exibir as sinopses
                     for($j = $controleSinopse; $j < $tamanho; $j++){
@@ -72,7 +85,8 @@
            }
            
            $this->retorno = explode('<br>',$this->element);
-           $tamanho = sizeof($this->retorno);
+           //-1 é utilizado para remover o espaço em branco que fica nos fim dos arrays
+           $tamanho = sizeof($this->retorno) - 1; 
            
            //Responsavel por pegar apenas a sinopse do filme
            for($i = 3; $i < $tamanho; $i+=15){
@@ -99,15 +113,33 @@
                $this -> capas .= $element;
            }
            
-           $this -> capas = explode('img src=',$this->capas);
-           echo '<pre>';
-           print_r($this->capas);
+          $this->toArray(true); //Altere para true se deseja gerar um .xml 
+       }
+        
+        private function toArray($condicao){
+            $this->sinopse = explode('<br>',$this->sinopse); //Transforma em um array
+            $this->tamanho = sizeof($this->sinopse); //Pega o tamanho dos arrays 
+            $this->tamanho = $this->tamanho - 1; //Remove o espaço em branco no final de todos os arrays
+            
+            $this->filmes = explode('<br>',$this->filmes); //Transforma em um array
+            $this->horarios = explode('<br>',$this->horarios); //Transforma em um array
+            $this->censura = explode('<br>',$this->censura);
+            
+            $valor = sizeof($this->filmes)-1; //Pega a ultima posição do array
+            
+            /*
+             * Remove o ultimo valor do array, que é um valor em branco
+             * Não remova essas instruções
+             */
+            
+            unset($this->filmes[$valor]); 
+            unset($this->sinopse[$valor]);
+            unset($this->horarios[$valor]);
+            unset($this->censura[$valor]);
 
-           $this->xml(); //chama método responsavel por gerar o xml
+            if($condicao)
+                $this->xml(); //chama método responsavel por gerar o xml
         }
         
-        private function isOnline(){
-            $header = get_headers($this->urlPrincipal);
-        }
     }
 ?>
