@@ -1,0 +1,40 @@
+/* 
+    Document   : style
+    Created on : 30/10/2013, 22:14:08
+    Author     : Cláudio Henrique
+*/
+
+body{
+    background:#E8EDE0;
+}
+
+p{
+    margin-left: 5px;
+}
+
+#container{
+    height: 270px;
+    width: 1000px;
+    background:#F78D3F;
+    margin: 0 auto;
+}
+
+#sinopse{
+    font-family:'Share Tech Mono', sans-serif;
+    font-size: 13.5px;
+    margin-left: 5px;
+    margin-right: 5px;   
+}
+
+#sinopse p{
+    text-align: justify;
+}
+
+#titulo-filme h1{
+    width:800px;
+    color:#FFF;
+    background:#2BBBD8;
+    font-family:'Share Tech Mono', sans-serif;
+}
+
+

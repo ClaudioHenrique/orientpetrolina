@@ -8,7 +8,7 @@
     include_once('simple_html_dom.php');
     include_once('xml.class.php');
   
-    class Filmes {
+    class Filmes{
         private $urlPrincipal = "http://www.rivershopping.com.br/cinema.aspx";
         
         private $element    = null;
@@ -38,6 +38,10 @@
         
         public function getSinopse(){
             return $this->sinopse;
+        }
+        
+        public function getTamanho(){
+            return $this->tamanho;
         }
         
         private function xml(){
@@ -113,7 +117,7 @@
                $this -> capas .= $element;
            }
            
-          $this->toArray(true); //Altere para true se deseja gerar um .xml 
+          $this->toArray(false); //Altere para true se deseja gerar um .xml 
        }
         
         private function toArray($condicao){

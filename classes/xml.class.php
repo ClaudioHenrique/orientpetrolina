@@ -5,7 +5,7 @@ class Xml {
     private $xml;
     private $tab = 1;
 
-    public function __construct($version = '1.0', $encode = 'ISO-8859-1') {
+    public function __construct($version = '1.0', $encode = 'UFT-8') {
         $this->xml .= "<?xml version = '$version' encoding = '$encode' ?> \n";
     }
 
