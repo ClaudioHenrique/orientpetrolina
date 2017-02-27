@@ -20,4 +20,4 @@ Métodos
 - getHorarios()
 - getCensura()
 
-Com esses métodos você consegue recuperar é trabalhar facilmente com os dados, podendo fazer o que <strong>VOCÊ QUISER</strong>
+Com esses métodos você consegue recuperar é trabalhar facilmente com os dados, podendo ser utilizado em qualquer finalidade. 
